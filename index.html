@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektro Völtl | Elektrotechnik & Elektrohandel in Peilstein / Mühlviertel</title>
+    <meta name="description" content="Ihr zuverlässiger Partner für Elektroinstallationen, Smart Home, Antennenbau und Elektrohandel in Peilstein, Bezirk Rohrbach. Bodenständig, kompetent, regional.">
+    <!-- Google Fonts: Poppins (Headings) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN für das moderne Layout-Grid -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#26206B', // Dunkelblau / Violett
+                        brandAccent: '#F36B2A',  // Kräftiges Orange
+                        brandAccentHover: '#D9561A',
+                        brandLightBg: '#F8F9FD',
+                        brandDarkText: '#1E1B4B',
+                        brandMuted: '#555272',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Premium Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8F9FD;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #26206B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F36B2A;
+        }
+
+        /* Scroll-Reveal Base Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Blur Effect */
+        .backdrop-blur-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Keyframes für den pulsierenden Pin auf der Karte */
+        @keyframes radar-pulse {
+            0% {
+                transform: scale(0.9);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.2);
+                opacity: 0;
+            }
+        }
+        .radar-effect {
+            animation: radar-pulse 2s infinite ease-out;
+        }
+    </style>
+</head>
+<body class="font-sans bg-[#FAFBFD] text-brandDarkText antialiased">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-nav border-b border-brandPrimary/10 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand Identity (Hier wird Ihr Logo modern eingebunden) -->
+                <a href="#home" class="flex items-center group">
+                    <img src="logo.png" alt="Elektro Völtl Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-102">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 font-medium text-sm">
+                    <a href="#kompetenzbereich" onclick="switchTab('leistungen')" class="text-brandPrimary hover:text-brandAccent transition-colors py-2">Leistungen</a>
+                    <a href="#kompetenzbereich" onclick="switchTab('handel')" class="text-brandPrimary hover:text-brandAccent transition-colors py-2">Elektrohandel</a>
+                    <a href="#anfahrt" class="text-brandPrimary hover:text-brandAccent transition-colors py-2">Anfahrt & Standort</a>
+                    <a href="#ueber-uns" class="text-brandPrimary hover:text-brandAccent transition-colors py-2">Über Uns</a>
+                    <a href="#referenzen" class="text-brandPrimary hover:text-brandAccent transition-colors py-2">Referenzen</a>
+                </nav>
+
+                <!-- Action Button Desktop -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="tel:+4372877247" class="text-xs font-semibold text-brandPrimary flex items-center space-x-1 hover:text-brandAccent transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <span>Region Peilstein</span>
+                    </a>
+                    <a href="#kontakt" class="bg-brandPrimary hover:bg-[#3b33a3] text-white px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-brandPrimary/10">
+                        Jetzt anfragen
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-brandPrimary focus:outline-none p-2" aria-label="Menü öffnen">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="hamburger-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-brandPrimary/10">
+            <div class="px-4 pt-2 pb-6 space-y-3">
+                <a href="#kompetenzbereich" onclick="switchTab('leistungen'); toggleMobileMenu();" class="block text-brandPrimary hover:text-brandAccent font-medium py-2">Leistungen</a>
+                <a href="#kompetenzbereich" onclick="switchTab('handel'); toggleMobileMenu();" class="block text-brandPrimary hover:text-brandAccent font-medium py-2">Elektrohandel</a>
+                <a href="#anfahrt" onclick="toggleMobileMenu();" class="block text-brandPrimary hover:text-brandAccent font-medium py-2">Anfahrt & Standort</a>
+                <a href="#ueber-uns" onclick="toggleMobileMenu();" class="block text-brandPrimary hover:text-brandAccent font-medium py-2">Über Uns</a>
+                <a href="#referenzen" onclick="toggleMobileMenu();" class="block text-brandPrimary hover:text-brandAccent font-medium py-2">Referenzen</a>
+                <div class="pt-4 border-t border-brandPrimary/10 flex flex-col space-y-3">
+                    <a href="tel:+4372877247" class="text-sm font-semibold text-brandPrimary flex items-center space-x-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <span>07287 7247</span>
+                    </a>
+                    <a href="#kontakt" onclick="toggleMobileMenu();" class="bg-brandAccent hover:bg-brandAccentHover text-white text-center px-5 py-3 rounded-lg font-medium transition-all">
+                        Jetzt anfragen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden flex items-center min-h-[90vh]">
+        <!-- Technical Grid Background Pattern -->
+        <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#26206B" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+
+        <div class="absolute top-1/4 right-0 w-96 h-96 bg-brandAccent/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-80 h-80 bg-brandPrimary/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- Text Content Left -->
+                <div class="lg:col-span-7 space-y-6 md:space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-brandPrimary/5 border border-brandPrimary/10 px-3 py-1.5 rounded-full text-xs font-semibold text-brandPrimary uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-brandAccent animate-ping"></span>
+                        <span>Ihr Partner in Peilstein</span>
+                    </div>
+
+                    <h1 class="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl text-brandPrimary leading-tight">
+                        Elektrotechnik für <br>
+                        <span class="text-brandAccent">die Zukunft.</span>
+                    </h1>
+
+                    <p class="text-brandMuted text-lg md:text-xl max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Von der klassischen Elektroinstallation bis zur intelligenten Energielösung – Ihr bodenständiger, zuverlässiger und moderner Partner in Peilstein, Rohrbach und ganz Oberösterreich.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#kontakt" class="bg-brandAccent hover:bg-brandAccentHover text-white px-8 py-4 rounded-xl font-medium shadow-lg shadow-brandAccent/20 transition-all duration-300 hover:scale-[1.02] text-center">
+                            Jetzt anfragen
+                        </a>
+                        <a href="#kompetenzbereich" onclick="switchTab('leistungen')" class="bg-white border-2 border-brandPrimary/15 text-brandPrimary hover:border-brandPrimary/30 hover:bg-brandPrimary/5 px-8 py-4 rounded-xl font-medium transition-all duration-300 text-center">
+                            Leistungen ansehen
+                        </a>
+                    </div>
+
+                    <!-- Micro Trust Elements -->
+                    <div class="grid grid-cols-3 gap-6 pt-6 border-t border-brandPrimary/5 max-w-md mx-auto lg:mx-0 text-left">
+                        <div>
+                            <span class="block font-display font-bold text-2xl text-brandPrimary">1942</span>
+                            <span class="text-xs text-brandMuted">Gegründet</span>
+                        </div>
+                        <div>
+                            <span class="block font-display font-bold text-2xl text-brandPrimary">100%</span>
+                            <span class="text-xs text-brandMuted">Mühlviertler Quality</span>
+                        </div>
+                        <div>
+                            <span class="block font-display font-bold text-2xl text-brandPrimary">1.2k+</span>
+                            <span class="text-xs text-brandMuted">Projekte realisiert</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Illustration Right -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-brandAccent/30 pointer-events-none rounded-tl-3xl"></div>
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-brandPrimary/30 pointer-events-none rounded-br-3xl"></div>
+
+                        <div class="relative overflow-hidden rounded-2xl shadow-2xl shadow-brandPrimary/15 aspect-[4/5] bg-brandPrimary">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brandPrimary/80 via-transparent to-brandPrimary/10 z-10"></div>
+                            
+                            <div class="absolute inset-0 flex flex-col justify-end p-8 z-20 text-white">
+                                <span class="text-brandAccent uppercase font-bold text-xs tracking-wider mb-2">Handwerk & Technik</span>
+                                <h3 class="font-display font-bold text-2xl mb-1">Qualität, die verbindet.</h3>
+                                <p class="text-sm text-white/80 font-light">Wir begleiten Sie beim Hausbau, der Modernisierung oder beim Wechsel auf Solarenergie.</p>
+                            </div>
+
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg class="w-full h-full opacity-40 scale-105" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="200" cy="250" r="180" stroke="#F36B2A" stroke-width="1" stroke-dasharray="10 15" />
+                                    <circle cx="200" cy="250" r="120" stroke="#FFF" stroke-width="2" />
+                                    <line x1="200" y1="70" x2="200" y2="430" stroke="#FFF" stroke-opacity="0.2" />
+                                    <line x1="20" y1="250" x2="380" y2="250" stroke="#FFF" stroke-opacity="0.2" />
+                                    <circle cx="200" cy="130" r="8" fill="#F36B2A">
+                                        <animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite" />
+                                    </circle>
+                                    <circle cx="200" cy="370" r="8" fill="#F36B2A">
+                                        <animate attributeName="opacity" values="1;0.2;1" dur="3.5s" repeatCount="indefinite" />
+                                    </circle>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="absolute -right-6 top-1/4 bg-white p-4 rounded-xl shadow-lg border border-brandPrimary/5 hidden sm:flex items-center space-x-3 z-30">
+                            <div class="w-10 h-10 bg-brandAccent/10 rounded-lg flex items-center justify-center text-brandAccent">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <div>
+                                <span class="block font-bold text-xs text-brandPrimary uppercase">Smart & Nachhaltig</span>
+                                <span class="block text-[10px] text-brandMuted">Bereit für die Zukunft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIFIED KOMPETENZBEREICH: LEISTUNGEN & ELEKTROHANDEL TABS -->
+    <section id="kompetenzbereich" class="py-24 bg-brandLightBg relative border-b border-brandPrimary/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+                <span class="text-brandAccent font-semibold uppercase tracking-wider text-sm">Unser Angebot</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-brandPrimary mt-2">Kompetenz & Fachhandel</h2>
+                <div class="w-16 h-1 bg-brandAccent mx-auto mt-4 rounded-full"></div>
+                <p class="text-brandMuted mt-4 text-base sm:text-lg">
+                    Entdecken Sie unser breites Spektrum an handwerklichen Dienstleistungen und die Vielfalt unseres regionalen Elektrohandels.
+                </p>
+            </div>
+
+            <!-- Modern Premium Tab Switcher -->
+            <div class="flex justify-center mb-16 reveal">
+                <div class="inline-flex bg-white p-2 rounded-2xl shadow-md border border-brandPrimary/5 max-w-full overflow-x-auto scrollbar-none">
+                    <!-- Tab Button 1: Leistungsspektrum -->
+                    <button id="tab-btn-leistungen" onclick="switchTab('leistungen')" class="flex items-center space-x-3 px-6 py-3.5 rounded-xl font-display font-bold text-sm transition-all duration-300 whitespace-nowrap bg-brandPrimary text-white shadow-md">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31(2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span>Unser Leistungsspektrum</span>
+                    </button>
+                    <!-- Tab Button 2: Elektrohandel -->
+                    <button id="tab-btn-handel" onclick="switchTab('handel')" class="flex items-center space-x-3 px-6 py-3.5 rounded-xl font-display font-bold text-sm transition-all duration-300 whitespace-nowrap text-brandPrimary hover:text-brandAccent">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        <span>Elektrohandel vor Ort</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ================= TAB 1: LEISTUNGSSPEKTRUM CONTENT ================= -->
+            <div id="tab-content-leistungen" class="space-y-12 transition-all duration-500">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Hausinstallationen -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-brandPrimary/5 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 bg-brandPrimary/5 rounded-xl flex items-center justify-center text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white transition-all duration-300 mb-6">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                            </div>
+                            <h3 class="font-display font-bold text-xl text-brandPrimary mb-3">Hausinstallationen</h3>
+                            <p class="text-brandMuted text-sm leading-relaxed mb-6">
+                                Ob moderner Neubau, Sanierung oder Erweiterungen. Wir planen und realisieren Ihre Elektroanlagen zukunftssicher, sauber und exakt nach Norm.
+                            </p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-xs text-brandMuted font-medium border-t border-brandPrimary/5 pt-4">
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Komplett-Rohbauinstallation</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Altbausanierung & Modernisierung</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Zähler- & Hauptverteileranlagen</span></li>
+                        </ul>
+                        <a href="#kontakt" class="text-brandAccent font-semibold text-sm inline-flex items-center group-hover:translate-x-1 transition-transform">
+                            <span>Jetzt anfragen</span> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Smart-Home-Installationen -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-brandPrimary/5 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 bg-brandPrimary/5 rounded-xl flex items-center justify-center text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white transition-all duration-300 mb-6">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <h3 class="font-display font-bold text-xl text-brandPrimary mb-3">Smart-Home-Installationen</h3>
+                            <p class="text-brandMuted text-sm leading-relaxed mb-6">
+                                Komfortabel, energiesparend und zukunftssicher. Wir planen und integrieren intelligente Steuerungssysteme für Beleuchtung, Heizung und Beschattung.
+                            </p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-xs text-brandMuted font-medium border-t border-brandPrimary/5 pt-4">
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Automatisierte Lichtsteuerung</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Zentral gesteuerte Beschattung</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Heiz- & Energiemanagement</span></li>
+                        </ul>
+                        <a href="#kontakt" class="text-brandAccent font-semibold text-sm inline-flex items-center group-hover:translate-x-1 transition-transform">
+                            <span>Beratung anfordern</span> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Verteilerbau -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-brandPrimary/5 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 bg-brandPrimary/5 rounded-xl flex items-center justify-center text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white transition-all duration-300 mb-6">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                            </div>
+                            <h3 class="font-display font-bold text-xl text-brandPrimary mb-3">Verteilerbau</h3>
+                            <p class="text-brandMuted text-sm leading-relaxed mb-6">
+                                Das Herzstück Ihrer elektrischen Anlage wird direkt in unserer eigenen Werkstatt präzise, übersichtlich und absolut sicher aufgebaut.
+                            </p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-xs text-brandMuted font-medium border-t border-brandPrimary/5 pt-4">
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Schaltschrankmontage vor Ort</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Strukturierte Dokumentation</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Sichere Industriekomponenten</span></li>
+                        </ul>
+                        <a href="#kontakt" class="text-brandAccent font-semibold text-sm inline-flex items-center group-hover:translate-x-1 transition-transform">
+                            <span>Projekt besprechen</span> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Photovoltaikanlagen (Integrierter Kartenstil) -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-brandPrimary/5 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 bg-brandPrimary/5 rounded-xl flex items-center justify-center text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white transition-all duration-300 mb-6">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+                            </div>
+                            <h3 class="font-display font-bold text-xl text-brandPrimary mb-3">Photovoltaikanlagen</h3>
+                            <p class="text-brandMuted text-sm leading-relaxed mb-6">
+                                Eigener, grüner Strom vom eigenen Dach. Wir projektieren hocheffiziente PV-Anlagen inklusive moderner Batteriespeicherlösungen.
+                            </p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-xs text-brandMuted font-medium border-t border-brandPrimary/5 pt-4">
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Auslegung & Wirtschaftlichkeit</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Speicher & Notstrom-Optionen</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Förderabwicklung aus einer Hand</span></li>
+                        </ul>
+                        <a href="#kontakt" class="text-brandAccent font-semibold text-sm inline-flex items-center group-hover:translate-x-1 transition-transform">
+                            <span>Beratung anfordern</span> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Antennenbau -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-brandPrimary/5 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 bg-brandPrimary/5 rounded-xl flex items-center justify-center text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white transition-all duration-300 mb-6">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 11-3-3M12 5V3m0 2L9 5m3 0l3-3"></path></svg>
+                            </div>
+                            <h3 class="font-display font-bold text-xl text-brandPrimary mb-3">Antennenbau</h3>
+                            <p class="text-brandMuted text-sm leading-relaxed mb-6">
+                                Verlässliche Signalstärke für ungestörten Fernseh- und Radiogenuss. Wir errichten Neuanlagen und justieren bestehende Systeme präzise nach.
+                            </p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-xs text-brandMuted font-medium border-t border-brandPrimary/5 pt-4">
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Professionelle SAT-Anlagen</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Präzise Signalmessung vor Ort</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Kabelfernsehen & Einspeisung</span></li>
+                        </ul>
+                        <a href="#kontakt" class="text-brandAccent font-semibold text-sm inline-flex items-center group-hover:translate-x-1 transition-transform">
+                            <span>Service anfragen</span> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= TAB 2: ELEKTROHANDEL CONTENT ================= -->
+            <div id="tab-content-handel" class="hidden space-y-12 transition-all duration-500">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Weiße Ware -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-brandPrimary/5 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 bg-brandPrimary/5 rounded-xl flex items-center justify-center text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white transition-all duration-300 mb-6">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 3h6M4 6h16M5 6v13a2 2 0 002 2h10a2 2 0 002-2V6M12 17a4 4 0 110-8 4 4 0 010 8z"></path></svg>
+                            </div>
+                            <span class="text-[10px] text-brandAccent uppercase font-bold tracking-widest block mb-1">Elektrogeräte</span>
+                            <h3 class="font-display font-bold text-xl text-brandPrimary mb-3">Weiße Ware</h3>
+                            <p class="text-brandMuted text-sm leading-relaxed mb-6">
+                                Haushaltsgeräte wie Waschmaschinen und Trockner sowie Geschirrspüler und Kühlgeräte renommierter Qualitätsmarken.
+                            </p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-xs text-brandMuted font-medium border-t border-brandPrimary/5 pt-4">
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Waschmaschinen führender Marken</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Schonende, moderne Trockner</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Lieferungs- & Einbauservice</span></li>
+                        </ul>
+                        <a href="#kontakt" class="text-brandAccent font-semibold text-sm inline-flex items-center group-hover:translate-x-1 transition-transform">
+                            <span>Beratung & Kauf</span> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Braune Ware -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-brandPrimary/5 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 bg-brandPrimary/5 rounded-xl flex items-center justify-center text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white transition-all duration-300 mb-6">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path></svg>
+                            </div>
+                            <span class="text-[10px] text-brandAccent uppercase font-bold tracking-widest block mb-1">Unterhaltung & Empfang</span>
+                            <h3 class="font-display font-bold text-xl text-brandPrimary mb-3">Braune Ware</h3>
+                            <p class="text-brandMuted text-sm leading-relaxed mb-6">
+                                Medien- und Signaltechnik für Ihr Wohnzimmer. SAT-Anlagen, Fernseh- und Radiogeräte inklusive fachgerechter Konfiguration.
+                            </p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-xs text-brandMuted font-medium border-t border-brandPrimary/5 pt-4">
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>TV- & Radiogeräte der neuesten Generation</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Komplette, langlebige SAT-Anlagen</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Sorglose Montage & Justierung vor Ort</span></li>
+                        </ul>
+                        <a href="#kontakt" class="text-brandAccent font-semibold text-sm inline-flex items-center group-hover:translate-x-1 transition-transform">
+                            <span>Modell anfragen</span> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Kleingeräte & Beleuchtung -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-brandPrimary/5 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 bg-brandPrimary/5 rounded-xl flex items-center justify-center text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white transition-all duration-300 mb-6">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                            </div>
+                            <span class="text-[10px] text-brandAccent uppercase font-bold tracking-widest block mb-1">Zubehör & Wohnraum</span>
+                            <h3 class="font-display font-bold text-xl text-brandPrimary mb-3">Kleingeräte & Licht</h3>
+                            <p class="text-brandMuted text-sm leading-relaxed mb-6">
+                                Praktische Haushalts-Kleingeräte, stilvolle Beleuchtungen für drinnen und draußen sowie vieles mehr direkt ab Lager.
+                            </p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-xs text-brandMuted font-medium border-t border-brandPrimary/5 pt-4">
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Nützliche Küchen- & Haushaltskleingeräte</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Moderne Leuchten & LED-Systeme</span></li>
+                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-brandAccent"></span><span>Kompetente Beratung im Fachgeschäft</span></li>
+                        </ul>
+                        <a href="#kontakt" class="text-brandAccent font-semibold text-sm inline-flex items-center group-hover:translate-x-1 transition-transform">
+                            <span>Sortiment ansehen</span> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Trade Value Statement / Call-to-Action -->
+            <div class="mt-12 bg-brandPrimary p-8 rounded-2xl text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-md reveal">
+                <div class="space-y-2 text-center md:text-left">
+                    <h3 class="font-display font-bold text-xl">Lieferservice & Einbauservice</h3>
+                    <p class="text-white/80 text-sm max-w-2xl font-light">Wir liefern Großgeräte direkt zu Ihnen nach Hause, schließen diese fachgerecht an und nehmen Altgeräte zur umweltgerechten Entsorgung mit.</p>
+                </div>
+                <a href="#kontakt" class="bg-brandAccent hover:bg-brandAccentHover text-white px-6 py-3 rounded-lg font-medium transition-colors text-sm whitespace-nowrap">
+                    Gerät anfragen / reservieren
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ANFAHRT & STANDORT SEKTION (Ersetzt die PV Sektion) -->
+    <section id="anfahrt" class="py-24 bg-white relative overflow-hidden border-b border-brandPrimary/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left Content: Location description -->
+                <div class="space-y-8 reveal">
+                    <div>
+                        <span class="text-brandAccent font-semibold uppercase tracking-wider text-sm">Unsere Heimat</span>
+                        <h2 class="font-display font-bold text-3xl sm:text-4xl text-brandPrimary mt-2">Ihr Weg zu Elektro Völtl</h2>
+                        <div class="w-16 h-1 bg-brandAccent mt-4 rounded-full"></div>
+                    </div>
+                    <p class="text-brandMuted text-base sm:text-lg leading-relaxed">
+                        Sie finden unser traditionelles Fachgeschäft und unseren Handwerksbetrieb direkt im Herzen von **Peilstein im Mühlviertel**. Wir freuen uns darauf, Sie persönlich vor Ort bei uns begrüßen und beraten zu dürfen.
+                    </p>
+
+                    <!-- Routing indicators with animation -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-brandLightBg p-4 rounded-xl border border-brandPrimary/5 flex items-center space-x-3 hover:shadow-sm transition-all duration-300">
+                            <span class="w-2.5 h-2.5 rounded-full bg-brandAccent"></span>
+                            <div>
+                                <span class="block text-xs text-brandMuted">Aus Rohrbach</span>
+                                <span class="font-display font-bold text-sm text-brandPrimary">ca. 15 Minuten</span>
+                            </div>
+                        </div>
+                        <div class="bg-brandLightBg p-4 rounded-xl border border-brandPrimary/5 flex items-center space-x-3 hover:shadow-sm transition-all duration-300">
+                            <span class="w-2.5 h-2.5 rounded-full bg-brandAccent"></span>
+                            <div>
+                                <span class="block text-xs text-brandMuted">Aus Sarleinsbach</span>
+                                <span class="font-display font-bold text-sm text-brandPrimary">ca. 12 Minuten</span>
+                            </div>
+                        </div>
+                        <div class="bg-brandLightBg p-4 rounded-xl border border-brandPrimary/5 flex items-center space-x-3 hover:shadow-sm transition-all duration-300">
+                            <span class="w-2.5 h-2.5 rounded-full bg-brandAccent"></span>
+                            <div>
+                                <span class="block text-xs text-brandMuted">Aus Ulrichsberg</span>
+                                <span class="font-display font-bold text-sm text-brandPrimary">ca. 10 Minuten</span>
+                            </div>
+                        </div>
+                        <div class="bg-brandLightBg p-4 rounded-xl border border-brandPrimary/5 flex items-center space-x-3 hover:shadow-sm transition-all duration-300">
+                            <span class="w-2.5 h-2.5 rounded-full bg-brandAccent"></span>
+                            <div>
+                                <span class="block text-xs text-brandMuted">Aus Julbach</span>
+                                <span class="font-display font-bold text-sm text-brandPrimary">ca. 7 Minuten</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address Callout Card -->
+                    <div class="p-6 bg-brandPrimary/5 rounded-2xl border border-brandPrimary/10 space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-brandPrimary text-white rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-brandMuted font-semibold">Anschrift</span>
+                                <span class="block text-brandPrimary font-display font-bold text-base">Marktstraße 6, 4153 Peilstein</span>
+                            </div>
+                        </div>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Elektro+Völtl+Marktstraße+6+4153+Peilstein" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 bg-brandAccent hover:bg-brandAccentHover text-white px-5 py-3 rounded-lg font-medium text-xs tracking-wider uppercase transition-colors">
+                            <span>Route in Google Maps starten</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Content: Beautiful stylized Map / Live Google Map integration -->
+                <div class="relative reveal">
+                    <div class="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-brandAccent/30 pointer-events-none rounded-tl-xl"></div>
+                    <div class="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-brandPrimary/30 pointer-events-none rounded-br-xl"></div>
+                    
+                    <div class="relative overflow-hidden rounded-2xl shadow-xl border border-brandPrimary/10 aspect-square lg:aspect-[4/3] bg-brandLightBg">
+                        <!-- Simulated stylized radar background or interactive iframe -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2617.9157297920785!2d13.89679197711462!3d48.61152061739985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47743ea410f76c09%3A0xe6bf44b7fcf765bd!2sMarktstra%C3%9Fe%206%2C%204153%20Peilstein%20im%20M%C3%BChlviertel!5e0!3m2!1sde!2sat!4v1700000000000!5m2!1sde!2sat" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="absolute inset-0 grayscale contrast-125 opacity-90 hover:grayscale-0 transition-all duration-500">
+                        </iframe>
+
+                        <!-- Radar Pulse element over the map location -->
+                        <div class="absolute top-[48%] left-[49%] -translate-x-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center">
+                            <span class="absolute w-12 h-12 rounded-full bg-brandAccent/30 radar-effect"></span>
+                            <span class="absolute w-4 h-4 rounded-full bg-brandAccent border-2 border-white shadow-lg"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ÜBER UNS -->
+    <section id="ueber-uns" class="py-24 bg-brandLightBg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Links: Image Grid with team.jpg -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg aspect-video bg-brandPrimary">
+                        <!-- Hier wird Ihr Teambild team.jpg perfekt eingebunden -->
+                        <img src="team.jpg" alt="Elektro Völtl Team" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandPrimary/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-brandPrimary/5 z-10">
+                            <span class="block font-display font-bold text-sm text-brandPrimary">Familiengeführt & Zuverlässig</span>
+                            <span class="block text-[10px] text-brandMuted">Elektrohandwerk mit Leidenschaft und Handschlagqualität</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-xl border border-brandPrimary/5 text-center shadow-sm">
+                            <span class="block font-display font-extrabold text-2xl text-brandAccent">1942</span>
+                            <span class="block text-[10px] text-brandMuted mt-1">Gegründet im Mühlviertel</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-brandPrimary/5 text-center shadow-sm">
+                            <span class="block font-display font-extrabold text-2xl text-brandPrimary">99%</span>
+                            <span class="block text-[10px] text-brandMuted mt-1">Zufriedene Kunden</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rechts: Text & Werte -->
+                <div class="lg:col-span-7 space-y-6 reveal">
+                    <span class="text-brandAccent font-semibold uppercase tracking-wider text-sm">Unsere Identität</span>
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl text-brandPrimary">
+                        Tradition trifft auf Innovation.
+                    </h2>
+                    <p class="text-brandMuted text-base leading-relaxed">
+                        Als gewachsener Familienbetrieb im Mühlviertel fühlen wir uns Werten wie Verlässlichkeit, Ehrlichkeit und exzellenter Handwerksarbeit verpflichtet. Seit unserer Gründung im Jahr 1942 begleiten wir Haushalte und Unternehmen mit hochwertiger Elektroinstallation.
+                    </p>
+                    <p class="text-brandMuted text-base leading-relaxed">
+                        Durch kontinuierliche Weiterbildungen unseres Teams vereinen wir das bewährte Wissen klassischer Elektroinstallationen mit den technologischen Errungenschaften der modernen Gebäudeautomation und der modernen Haustechnik.
+                    </p>
+
+                    <!-- Core Values Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-2 h-2 rounded-full bg-brandAccent flex-shrink-0"></span>
+                            <span class="text-sm font-semibold text-brandPrimary">Bodenständig & ehrlich im Umgang</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="w-2 h-2 rounded-full bg-brandAccent flex-shrink-0"></span>
+                            <span class="text-sm font-semibold text-brandPrimary">Regional verwurzelt im Mühlviertel</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="w-2 h-2 rounded-full bg-brandAccent flex-shrink-0"></span>
+                            <span class="text-sm font-semibold text-brandPrimary">Fachlich am Puls der Zeit</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="w-2 h-2 rounded-full bg-brandAccent flex-shrink-0"></span>
+                            <span class="text-sm font-semibold text-brandPrimary">Ausbildung junger Fachkräfte</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- REFERENZEN / INTERAKTIVER VORHER-NACHHER REGLER -->
+    <section id="referenzen" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-brandAccent font-semibold uppercase tracking-wider text-sm">Unsere Arbeiten</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-brandPrimary mt-2">Erfolgreich umgesetzte Projekte</h2>
+                <div class="w-16 h-1 bg-brandAccent mx-auto mt-4 rounded-full"></div>
+                <p class="text-brandMuted mt-4 text-base">
+                    Sehen Sie selbst, wie wir aus alten Schaltkästen oder traditionellen Häusern moderne, energieeffiziente und zukunftssichere Gebäude machen.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Interactive Slide Control Info -->
+                <div class="lg:col-span-5 space-y-6 reveal">
+                    <span class="text-brandAccent uppercase font-bold text-xs tracking-wider">Sanierungs-Highlight</span>
+                    <h3 class="font-display font-bold text-2xl text-brandPrimary">Verteiler-Modernisierung</h3>
+                    <p class="text-brandMuted text-sm leading-relaxed">
+                        Ein veralteter Zählerkasten birgt Risiken und schränkt den Anschluss moderner Großverbraucher (z.B. PV-Anlage, Wallbox) ein. 
+                    </p>
+                    <p class="text-brandMuted text-sm leading-relaxed">
+                        In diesem Projekt haben wir die komplette Verteilung innerhalb weniger Stunden erneuert – sauber dokumentiert, übersichtlich strukturiert und absolut betriebssicher.
+                    </p>
+
+                    <div class="p-4 bg-brandLightBg rounded-xl border border-brandPrimary/5 space-y-2">
+                        <span class="block text-xs font-semibold text-brandPrimary">Fakten zum Projekt:</span>
+                        <div class="flex justify-between text-xs text-brandMuted">
+                            <span>Dauer:</span>
+                            <span class="font-medium text-brandPrimary">1,5 Arbeitstage</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-brandMuted">
+                            <span>Kunde:</span>
+                            <span class="font-medium text-brandPrimary">Einfamilienhaus, Rohrbach</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-brandMuted">
+                            <span>Ergebnis:</span>
+                            <span class="font-medium text-brandAccent">Normgerecht & modern</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Before-After Mockup -->
+                <div class="lg:col-span-7 font-sans">
+                    <!-- Das Haupt-Containerfeld -->
+                    <div class="relative w-full h-96 rounded-2xl overflow-hidden shadow-xl select-none cursor-ew-resize border border-brandPrimary/5" id="before-after-box">
+                        
+                        <!-- Hintergrundbild (Altbestand: vorher.png) -->
+                        <div class="absolute inset-0">
+                            <img src="vorher.png" alt="Vorher" class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Maskierungs-Ebene (Modernisiert: nacher.png) - Die Breite wird vom JavaScript gesteuert -->
+                        <div class="absolute inset-0 overflow-hidden pointer-events-none" id="after-layer" style="width: 50%;">
+                            <!-- Wrapper-Element, das exakt die Breite des Elterncontainers behält (verhindert Bild-Stauchung!) -->
+                            <div class="absolute inset-0 h-full" id="after-image-wrapper">
+                                <img src="nacher.png" alt="Nachher" class="absolute inset-0 w-full h-full object-cover">
+                            </div>
+                        </div>
+
+                        <!-- Der Schiebegriff (Handle) mit gekoppelten Schildern (Alt & Neu bewegen sich mit!) -->
+                        <div class="absolute top-0 bottom-0 w-1 bg-white flex items-center justify-center z-30" id="slider-handle" style="left: 50%; will-change: left;">
+                            
+                            <!-- Schild links vom Regler: Neu (Nachher) -->
+                            <div class="absolute top-4 right-6 bg-brandAccent/90 backdrop-blur-sm text-white text-xs font-medium px-4 py-2 rounded-xl shadow-sm border border-white/10 whitespace-nowrap pointer-events-none">
+                                Neu (Nachher)
+                            </div>
+                            
+                            <!-- Schild rechts vom Regler: Alt (Vorher) -->
+                            <div class="absolute top-4 left-6 bg-[#413e3c]/90 backdrop-blur-sm text-white text-xs font-medium px-4 py-2 rounded-xl shadow-sm border border-white/10 whitespace-nowrap pointer-events-none">
+                                Alt (Vorher)
+                            </div>
+
+                            <!-- Physischer Knopf zum Schieben -->
+                            <div class="w-10 h-10 rounded-full bg-brandAccent text-white flex items-center justify-center shadow-xl border-2 border-white -mx-4.5 transition-transform active:scale-95 duration-100 cursor-ew-resize">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between text-[11px] text-brandMuted mt-3 px-2">
+                        <span>← Zum Vergleichen ziehen →</span>
+                        <span>Musterprojekt Elektro Völtl</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAKT & ANFRAGE -->
+    <section id="kontakt" class="py-24 bg-brandLightBg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                
+                <!-- Links: Kontaktdetails -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="reveal">
+                        <span class="text-brandAccent font-semibold uppercase tracking-wider text-sm">Direkter Draht</span>
+                        <h2 class="font-display font-bold text-3xl sm:text-4xl text-brandPrimary mt-2">Wir freuen uns auf Ihr Projekt</h2>
+                        <p class="text-brandMuted mt-4 text-sm leading-relaxed">
+                            Egal ob es sich um eine kleine Reparatur oder eine komplexe Hausinstallation handelt. Nehmen Sie unverbindlich Kontakt mit uns auf.
+                        </p>
+                    </div>
+
+                    <!-- Details Card -->
+                    <div class="bg-white p-8 rounded-2xl border border-brandPrimary/5 space-y-6 shadow-sm">
+                        <!-- Tel -->
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-brandPrimary/5 rounded-lg flex items-center justify-center text-brandPrimary flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-brandMuted uppercase tracking-wider">Telefon</span>
+                                <a href="tel:+4372877247" class="block text-brandPrimary font-display font-bold text-base hover:text-brandAccent transition-colors">07287 7247</a>
+                            </div>
+                        </div>
+
+                        <!-- Mail -->
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-brandPrimary/5 rounded-lg flex items-center justify-center text-brandPrimary flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-brandMuted uppercase tracking-wider">E-Mail</span>
+                                <a href="mailto:voeltl@peilstein.net" class="block text-brandPrimary font-display font-bold text-base hover:text-brandAccent transition-colors">voeltl@peilstein.net</a>
+                            </div>
+                        </div>
+
+                        <!-- Adresse -->
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-brandPrimary/5 rounded-lg flex items-center justify-center text-brandPrimary flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-brandMuted uppercase tracking-wider">Adresse</span>
+                                <span class="block text-brandPrimary font-semibold text-sm">Marktstraße 6, 4153 Peilstein</span>
+                            </div>
+                        </div>
+
+                        <!-- Öffnungszeiten (Aktualisiert) -->
+                        <div class="pt-4 border-t border-brandPrimary/10">
+                            <span class="block text-xs text-brandMuted uppercase tracking-wider mb-2">Öffnungszeiten</span>
+                            <div class="space-y-1 text-xs text-brandMuted">
+                                <div class="flex justify-between gap-4">
+                                    <span>Mo, Di, Do, Fr:</span>
+                                    <span class="font-semibold text-brandPrimary text-right">07:30 - 12:00 Uhr & 13:00 - 17:00 Uhr</span>
+                                </div>
+                                <div class="flex justify-between gap-4">
+                                    <span>Mittwoch:</span>
+                                    <span class="font-semibold text-brandPrimary text-right">07:30 - 12:00 Uhr</span>
+                                </div>
+                                <div class="flex justify-between gap-4">
+                                    <span>Sa & So:</span>
+                                    <span class="font-semibold text-brandPrimary text-right">Geschlossen</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rechts: Modernes Kontaktformular -->
+                <div class="lg:col-span-7 bg-white p-8 rounded-2xl border border-brandPrimary/5 shadow-xl reveal">
+                    <h3 class="font-display font-bold text-xl text-brandPrimary mb-1">Projektanfrage</h3>
+                    <p class="text-brandMuted text-xs mb-6">Füllen Sie einfach das Formular aus, wir melden uns verlässlich bei Ihnen.</p>
+
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Nachricht! Wir werden uns in Kürze bei Ihnen melden.');">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] uppercase font-bold text-brandPrimary tracking-wider mb-1" for="name">Name *</label>
+                                <input class="w-full bg-[#FAFBFD] border border-brandPrimary/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brandAccent transition-colors" type="text" id="name" required placeholder="Ihr Name">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] uppercase font-bold text-brandPrimary tracking-wider mb-1" for="phone">Telefonnummer</label>
+                                <input class="w-full bg-[#FAFBFD] border border-brandPrimary/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brandAccent transition-colors" type="tel" id="phone" placeholder="Für eventuelle Rückfragen">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold text-brandPrimary tracking-wider mb-1" for="email">E-Mail-Adresse *</label>
+                            <input class="w-full bg-[#FAFBFD] border border-brandPrimary/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brandAccent transition-colors" type="email" id="email" required placeholder="name@beispiel.at">
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold text-brandPrimary tracking-wider mb-1" for="service">Ihr Anliegen</label>
+                            <select class="w-full bg-[#FAFBFD] border border-brandPrimary/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brandAccent transition-colors" id="service">
+                                <option>Elektroinstallation / Hausbau</option>
+                                <option>Modernisierung / Verteilerbau</option>
+                                <option>Smart Home Modernisierung</option>
+                                <option>Elektrohandel / Markengeräte</option>
+                                <option>Anderes Anliegen</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold text-brandPrimary tracking-wider mb-1" for="message">Nachricht *</label>
+                            <textarea class="w-full bg-[#FAFBFD] border border-brandPrimary/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brandAccent transition-colors h-32 resize-none" id="message" required placeholder="Beschreiben Sie kurz Ihr Projekt oder Ihr Anliegen..."></textarea>
+                        </div>
+
+                        <div class="flex items-start space-x-2 pt-2">
+                            <input type="checkbox" id="privacy" required class="accent-brandAccent mt-1">
+                            <label for="privacy" class="text-[10px] text-brandMuted leading-snug">Ich stimme zu, dass meine Angaben zur Kontaktaufnahme verarbeitet werden. Weitere Details finden Sie in der Datenschutzerklärung.</label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brandAccent hover:bg-brandAccentHover text-white py-3.5 rounded-lg font-semibold tracking-wider transition-colors shadow-lg shadow-brandAccent/10 mt-4">
+                            Senden
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brandPrimary text-white pt-16 pb-8 border-t border-brandAccent/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-white/10">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-4">
+                    <!-- Logo-Badge im Footer für maximalen Kontrast -->
+                    <div class="bg-white px-4 py-2.5 rounded-xl inline-block shadow-sm">
+                        <img src="logo.png" alt="Elektro Völtl Logo" class="h-10 w-auto object-contain">
+                    </div>
+                    <p class="text-white/70 text-xs leading-relaxed max-w-sm">
+                        Ihr vertrauenswürdiger Fachbetrieb für nachhaltige, langlebige Elektrotechnik im oberen Mühlviertel.
+                    </p>
+                    <div class="pt-2 text-xs text-white/60">
+                        &copy; <span id="year">2026</span> Elektro Völtl. Alle Rechte vorbehalten.
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="space-y-4">
+                    <h4 class="font-display font-bold text-sm uppercase tracking-wider text-brandAccent">Menü</h4>
+                    <ul class="space-y-2 text-xs text-white/80">
+                        <li><a href="#kompetenzbereich" onclick="switchTab('leistungen')" class="hover:text-brandAccent transition-colors">Unsere Leistungen</a></li>
+                        <li><a href="#kompetenzbereich" onclick="switchTab('handel')" class="hover:text-brandAccent transition-colors">Elektrohandel</a></li>
+                        <li><a href="#anfahrt" class="hover:text-brandAccent transition-colors">Anfahrt & Standort</a></li>
+                        <li><a href="#ueber-uns" class="hover:text-brandAccent transition-colors">Über Uns</a></li>
+                        <li><a href="#referenzen" class="hover:text-brandAccent transition-colors">Referenzen</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services -->
+                <div class="space-y-4">
+                    <h4 class="font-display font-bold text-sm uppercase tracking-wider text-brandAccent">Leistungen</h4>
+                    <ul class="space-y-2 text-xs text-white/80">
+                        <li><a href="#kompetenzbereich" onclick="switchTab('leistungen')" class="hover:text-brandAccent transition-colors">Hausinstallationen</a></li>
+                        <li><a href="#kompetenzbereich" onclick="switchTab('leistungen')" class="hover:text-brandAccent transition-colors">Smart Home / Loxone</a></li>
+                        <li><a href="#kompetenzbereich" onclick="switchTab('leistungen')" class="hover:text-brandAccent transition-colors">Antennen- & SAT-Bau</a></li>
+                        <li><a href="#kompetenzbereich" onclick="switchTab('leistungen')" class="hover:text-brandAccent transition-colors">Schaltschrank- & Verteilerbau</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Regionalität -->
+                <div class="space-y-4">
+                    <h4 class="font-display font-bold text-sm uppercase tracking-wider text-brandAccent">Ihr Fachbetrieb vor Ort</h4>
+                    <p class="text-xs text-white/70 leading-relaxed">
+                        Als lokaler Leitbetrieb in Peilstein sorgen wir für kurze Anfahrtswege, schnelle Erreichbarkeit und erstklassige Handschlagqualität.
+                    </p>
+                    <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-[10px] font-semibold uppercase tracking-wider">
+                        <span>Elektriker Meisterbetrieb</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Legal: Impressum & Datenschutz buttons -->
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-white/60 gap-4">
+                <div class="flex space-x-6">
+                    <button onclick="openModal('impressum')" class="hover:text-brandAccent transition-colors focus:outline-none">Impressum</button>
+                    <button onclick="openModal('datenschutz')" class="hover:text-brandAccent transition-colors focus:outline-none">Datenschutz</button>
+                </div>
+                <div class="text-[10px] text-white/40">
+                    Optimiert für Peilstein, das Mühlviertel und ganz Oberösterreich.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ================= PREMIUM MULTI-TAB MODAL (Impressum & Datenschutz) ================= -->
+    <div id="legal-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay -->
+            <div class="fixed inset-0 bg-brandPrimary/40 backdrop-blur-sm transition-opacity" aria-hidden="true" onclick="closeModal()"></div>
+
+            <!-- Placement Trick -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <!-- Modal Content box -->
+            <div class="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full border border-brandPrimary/10">
+                
+                <!-- Modal Navigation Tabs -->
+                <div class="bg-brandLightBg px-6 py-4 border-b border-brandPrimary/10 flex items-center justify-between">
+                    <div class="flex space-x-4">
+                        <button id="modal-tab-impressum" onclick="switchModalTab('impressum')" class="font-display font-bold text-sm text-brandPrimary border-b-2 border-brandAccent pb-1 focus:outline-none">
+                            Impressum
+                        </button>
+                        <button id="modal-tab-datenschutz" onclick="switchModalTab('datenschutz')" class="font-display font-medium text-sm text-brandMuted hover:text-brandPrimary pb-1 focus:outline-none">
+                            Datenschutz
+                        </button>
+                    </div>
+                    <button onclick="closeModal()" class="text-brandMuted hover:text-brandPrimary focus:outline-none p-1 rounded-lg hover:bg-brandPrimary/5 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Modal Inner Scroller Content -->
+                <div class="px-8 py-8 max-h-[70vh] overflow-y-auto text-sm text-brandMuted leading-relaxed space-y-6">
+                    
+                    <!-- Content Layer 1: Impressum -->
+                    <div id="modal-content-impressum" class="space-y-6">
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-brandPrimary mb-2">Betreiber der Website</h3>
+                            <p class="font-bold text-brandPrimary">Elektro Völtl Installation u. Handel</p>
+                            <p>Marktstraße 6</p>
+                            <p>4153 Peilstein</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-brandPrimary/5">
+                            <div>
+                                <span class="block text-[10px] uppercase font-bold text-brandPrimary tracking-wider">Festnetz</span>
+                                <a href="tel:+4372877247" class="text-brandPrimary font-medium">07287 7247</a>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] uppercase font-bold text-brandPrimary tracking-wider">Fax</span>
+                                <span class="text-brandPrimary font-medium">07287 724720</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] uppercase font-bold text-brandPrimary tracking-wider">Mail</span>
+                                <a href="mailto:voeltl@peilstein.net" class="text-brandPrimary font-medium">voeltl@peilstein.net</a>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] uppercase font-bold text-brandPrimary tracking-wider">Geschäftsführung / Inhaber</span>
+                                <span class="text-brandPrimary font-medium">Joachim Gerhard Völtl</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-brandPrimary/5 text-xs">
+                            <div>
+                                <span class="block font-semibold text-brandPrimary">Unternehmensgründung:</span>
+                                <span>19.09.1942</span>
+                            </div>
+                            <div>
+                                <span class="block font-semibold text-brandPrimary">Gewerbe:</span>
+                                <span>Elektroinstallation und Handel</span>
+                            </div>
+                            <div>
+                                <span class="block font-semibold text-brandPrimary">UID-Nummer:</span>
+                                <span class="font-mono">ATU48542607</span>
+                            </div>
+                            <div>
+                                <span class="block font-semibold text-brandPrimary">Kammer / Berufsverband:</span>
+                                <span>Eisen- und metallverarbeitendes Gewerbe</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Öffnungszeiten im Impressum -->
+                        <div class="pt-4 border-t border-brandPrimary/10">
+                            <span class="block text-xs font-semibold text-brandPrimary mb-2">Öffnungszeiten</span>
+                            <div class="space-y-1 text-xs text-brandMuted">
+                                <div class="flex justify-between gap-4">
+                                    <span>Mo, Di, Do, Fr:</span>
+                                    <span class="font-semibold text-brandPrimary text-right">07:30 - 12:00 & 13:00 - 17:00 Uhr</span>
+                                </div>
+                                <div class="flex justify-between gap-4">
+                                    <span>Mittwoch:</span>
+                                    <span class="font-semibold text-brandPrimary text-right">07:30 - 12:00 Uhr</span>
+                                </div>
+                                <div class="flex justify-between gap-4">
+                                    <span>Sa & So:</span>
+                                    <span class="font-semibold text-brandPrimary text-right">Geschlossen</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Layer 2: Datenschutz -->
+                    <div id="modal-content-datenschutz" class="hidden space-y-6">
+                        <h3 class="font-display font-bold text-lg text-brandPrimary mb-1">Allgemeine Nutzungsbedingungen</h3>
+                        <div class="w-12 h-1 bg-brandAccent rounded-full mb-4"></div>
+
+                        <!-- 1. Haftungsausschluss -->
+                        <div class="space-y-2">
+                            <h4 class="font-display font-bold text-brandPrimary text-sm">1. Haftungsausschluss</h4>
+                            <p class="text-xs">
+                                Obwohl die Seiten mit größter Sorgfalt erstellt wurden, kann keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Informationen übernommen werden. Der Betreiber der Website bemüht sich darum, Fehler oder Irrtümer zu berichtigen, wenn er Kenntnis davon erhält – danke für diesbezügliche Hinweise. Es wird auch keine Gewähr für die Verfügbarkeit oder den Betrieb der gegenständlichen Website und ihrer Inhalte übernommen. Jede Haftung für unmittelbare, mittelbare oder sonstige Schäden, unabhängig von deren Ursachen, die aus der Benutzung oder Nichtverfügbarkeit der Website sowie der bereitgestellten Informationen auf dieser Website erwachsen, wird – soweit rechtlich zulässig – ausgeschlossen.
+                            </p>
+                        </div>
+
+                        <!-- 2. Copyright -->
+                        <div class="space-y-2 pt-2 border-t border-brandPrimary/5">
+                            <h4 class="font-display font-bold text-brandPrimary text-sm">2. Copyright</h4>
+                            <p class="text-xs">
+                                Der Inhalt dieser Website ist urheberrechtlich geschützt. Die Informationen sind nur für die persönliche Verwendung bestimmt. Jede weitergehende Nutzung, insbesondere die Speicherung in Datenbanken, Vervielfältigung und jede Form von gewerblicher Nutzung sowie die Weitergabe an Dritte – auch in Teilen oder in überarbeiteter Form, insbesondere von Fotos, Abbildungen und Texten – ohne Zustimmung des Betreibers der Website ist untersagt.
+                            </p>
+                        </div>
+
+                        <!-- 3. Haftung für Links -->
+                        <div class="space-y-2 pt-2 border-t border-brandPrimary/5">
+                            <h4 class="font-display font-bold text-brandPrimary text-sm">3. Haftung für Links</h4>
+                            <p class="text-xs">
+                                Diese Website kann Links zu externen Websites enthalten, jedoch hat der Betreiber der Website keinen Einfluss auf diese Zielseiten. Deshalb wird für diese fremden Inhalte auch keine Gewähr übernommen, dafür ist stets der jeweilige Anbieter der Seiten verantwortlich.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Modal Actions Footer -->
+                <div class="bg-brandLightBg px-6 py-4 border-t border-brandPrimary/10 flex justify-end">
+                    <button onclick="closeModal()" class="bg-brandPrimary hover:bg-[#3b33a3] text-white px-5 py-2.5 rounded-lg font-medium text-sm transition-colors">
+                        Schließen
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Set year dynamically
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 1. Sticky Header Blur Toggle
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('bg-white/95', 'shadow-md', 'shadow-brandPrimary/5');
+            } else {
+                header.classList.remove('bg-white/95', 'shadow-md', 'shadow-brandPrimary/5');
+            }
+        });
+
+        // 2. Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+
+        function toggleMobileMenu() {
+            if (mobileMenu && hamburgerIcon) {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    hamburgerIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>`;
+                } else {
+                    hamburgerIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>`;
+                }
+            }
+        }
+
+        // 3. TAB SWITCHER SYSTEM (Unser Leistungsspektrum VS. Elektrohandel)
+        function switchTab(tabId) {
+            const btnLeistungen = document.getElementById('tab-btn-leistungen');
+            const btnHandel = document.getElementById('tab-btn-handel');
+            const contentLeistungen = document.getElementById('tab-content-leistungen');
+            const contentHandel = document.getElementById('tab-content-handel');
+
+            if (btnLeistungen && btnHandel && contentLeistungen && contentHandel) {
+                if (tabId === 'leistungen') {
+                    btnLeistungen.className = "flex items-center space-x-3 px-6 py-3.5 rounded-xl font-display font-bold text-sm transition-all duration-300 whitespace-nowrap bg-brandPrimary text-white shadow-md";
+                    btnHandel.className = "flex items-center space-x-3 px-6 py-3.5 rounded-xl font-display font-bold text-sm transition-all duration-300 whitespace-nowrap text-brandPrimary hover:text-brandAccent";
+                    contentLeistungen.classList.remove('hidden');
+                    contentHandel.classList.add('hidden');
+                } else if (tabId === 'handel') {
+                    btnHandel.className = "flex items-center space-x-3 px-6 py-3.5 rounded-xl font-display font-bold text-sm transition-all duration-300 whitespace-nowrap bg-brandPrimary text-white shadow-md";
+                    btnLeistungen.className = "flex items-center space-x-3 px-6 py-3.5 rounded-xl font-display font-bold text-sm transition-all duration-300 whitespace-nowrap text-brandPrimary hover:text-brandAccent";
+                    contentHandel.classList.remove('hidden');
+                    contentLeistungen.classList.add('hidden');
+                }
+            }
+        }
+
+        // 4. Scroll Reveal Effect (Intersection Observer) - Sicherheitsgeprüft gegen leere Seiten
+        const revealElements = document.querySelectorAll('.reveal');
+        if (revealElements.length > 0) {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        revealObserver.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+                el.classList.add('reveal');
+            });
+        }
+
+        // Initial trigger for visible fold elements
+        setTimeout(() => {
+            const firstSectionElements = document.querySelectorAll('#home .reveal');
+            firstSectionElements.forEach(el => el.classList.add('active'));
+        }, 100);
+
+
+        // 5. OPTIMIERTER VORHER-NACHHER REGLER (Gekoppelte Schilder & verzerrungsfrei)
+        const container = document.getElementById('before-after-box');
+        const afterLayer = document.getElementById('after-layer');
+        const sliderHandle = document.getElementById('slider-handle');
+        const afterImageWrapper = document.getElementById('after-image-wrapper');
+
+        if (container && afterLayer && sliderHandle && afterImageWrapper) {
+            let isDragging = false;
+            let containerRect = null;
+
+            const updateRect = () => {
+                containerRect = container.getBoundingClientRect();
+                // Verhindert das Stauchen des Bildes beim Schieben des Masken-Containers
+                afterImageWrapper.style.width = `${containerRect.width}px`;
+            };
+
+            updateRect();
+            window.addEventListener('resize', updateRect);
+            window.addEventListener('scroll', updateRect, { passive: true });
+
+            const updateSlider = (clientX) => {
+                if (!containerRect) updateRect();
+                const x = clientX - containerRect.left;
+                let percentage = (x / containerRect.width) * 100;
+                
+                // Grenzen begrenzen, damit die am Regler hängenden Schilder an den Rändern nicht abgeschnitten werden
+                if (percentage < 15) percentage = 15;
+                if (percentage > 85) percentage = 85;
+
+                requestAnimationFrame(() => {
+                    afterLayer.style.width = `${percentage}%`;
+                    sliderHandle.style.left = `${percentage}%`;
+                });
+            };
+
+            const onStart = (e) => {
+                isDragging = true;
+                updateRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                updateSlider(clientX);
+            };
+
+            const onMove = (e) => {
+                if (!isDragging) return;
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                updateSlider(clientX);
+            };
+
+            const onEnd = () => {
+                isDragging = false;
+            };
+
+            container.addEventListener('mousedown', onStart);
+            window.addEventListener('mousemove', onMove, { passive: true });
+            window.addEventListener('mouseup', onEnd);
+
+            container.addEventListener('touchstart', onStart, { passive: true });
+            window.addEventListener('touchmove', onMove, { passive: true });
+            window.addEventListener('touchend', onEnd);
+        }
+
+
+        // ================= INTERAKTIVES IMPRESSUM/DATENSCHUTZ POPUP LOGIK (Sicherheitsgeprüft) =================
+        const legalModal = document.getElementById('legal-modal');
+
+        function openModal(initialTab) {
+            if (legalModal) {
+                legalModal.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+                switchModalTab(initialTab);
+            }
+        }
+
+        function closeModal() {
+            if (legalModal) {
+                legalModal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        function switchModalTab(tabId) {
+            const tabImpressum = document.getElementById('modal-tab-impressum');
+            const tabDatenschutz = document.getElementById('modal-tab-datenschutz');
+            const contentImpressum = document.getElementById('modal-content-impressum');
+            const contentDatenschutz = document.getElementById('modal-content-datenschutz');
+
+            if (tabImpressum && tabDatenschutz && contentImpressum && contentDatenschutz) {
+                if (tabId === 'impressum') {
+                    tabImpressum.className = "font-display font-bold text-sm text-brandPrimary border-b-2 border-brandAccent pb-1 focus:outline-none";
+                    tabDatenschutz.className = "font-display font-medium text-sm text-brandMuted hover:text-brandPrimary pb-1 focus:outline-none";
+                    contentImpressum.classList.remove('hidden');
+                    contentDatenschutz.classList.add('hidden');
+                } else if (tabId === 'datenschutz') {
+                    tabDatenschutz.className = "font-display font-bold text-sm text-brandPrimary border-b-2 border-brandAccent pb-1 focus:outline-none";
+                    tabImpressum.className = "font-display font-medium text-sm text-brandMuted hover:text-brandPrimary pb-1 focus:outline-none";
+                    contentDatenschutz.classList.remove('hidden');
+                    contentImpressum.classList.add('hidden');
+                }
+            }
+        }
+
+        // Schließen per ESC Taste
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+    </script>
+</body>
+</html>
